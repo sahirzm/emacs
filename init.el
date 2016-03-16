@@ -28,7 +28,8 @@
 		     evil
 		     magit
 		     projectile
-		     gruvbox-theme))
+		     gruvbox-theme
+		     linum-relative))
 
 ;; list the repositories containing them
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")

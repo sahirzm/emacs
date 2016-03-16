@@ -42,6 +42,7 @@
 
 ;; enable line number
 (setq column-number-mode t)
+(global-linum-mode t)
 
 (provide 'my-custom-settings)
 ;;; my-custom-settings ends here

@@ -54,4 +54,8 @@
 ;; evil mode
 (require 'evil)
 
+;; relative line numbers
+(require 'linum-relative)
+(linum-relative-on)
+
 ;;; packages-settings ends here
