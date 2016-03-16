@@ -10,6 +10,19 @@
 ;; disable tool-bar
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 
+;; check connected to internet
+(defvar my-onlinep)
+(setq my-onlinep nil)
+(unless
+    (condition-case nil
+        (delete-process
+         (make-network-process
+          :name "my-check-internet"
+          :host "elpa.gnu.org"
+          :service 80))
+      (error t))
+  (setq my-onlinep t))
+
 ;; list the packages you want
 (defvar package-list)
 (setq package-list '(color-theme-sanityinc-tomorrow
@@ -31,23 +44,23 @@
 		     gruvbox-theme
 		     linum-relative))
 
-;; list the repositories containing them
-(setq package-archives '(("elpa" . "http://tromey.com/elpa/")
-                         ("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-			 ("melpa" . "https://melpa.org/packages/")))
+(when my-onlinep
+    ;; list the repositories containing them
+    (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
+			    ("gnu" . "http://elpa.gnu.org/packages/")
+			    ("melpa" . "https://melpa.org/packages/")))
 
-;; activate all the packages (in particular autoloads)
-(package-initialize)
+    ;; activate all the packages (in particular autoloads)
+    (package-initialize)
 
-;; fetch the list of packages available
-(unless package-archive-contents
-  (package-refresh-contents))
+    ;; fetch the list of packages available
+    (unless package-archive-contents
+    (package-refresh-contents))
 
-;; install the missing packages
-(dolist (package package-list)
-  (unless (package-installed-p package)
-    (package-install package)))
+    ;; install the missing packages
+    (dolist (package package-list)
+	(unless (package-installed-p package)
+	    (package-install package))))
 
 (add-hook 'after-init-hook '(lambda()
 			      ;; load all package related settings

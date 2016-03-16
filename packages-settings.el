@@ -58,4 +58,7 @@
 (require 'linum-relative)
 (linum-relative-on)
 
+;; projectile for managing projects
+(projectile-global-mode)
+
 ;;; packages-settings ends here

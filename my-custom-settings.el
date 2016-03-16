@@ -20,6 +20,8 @@
 ;; highlight current line in buffer
 (global-hl-line-mode 1)
 
+;; set tab width to 8
+(setq-default tab-width 8)
 ;; load tomorrow night theme
 ;(load-theme 'sanityinc-tomorrow-night t)
 
