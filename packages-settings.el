@@ -1,4 +1,6 @@
+;;; packages-settings.el -- Settings related to packages installed
 
+;;; Commentary:
 ;;; Code:
 ;; ~/.emacs.d/packages-settings.el
 
@@ -31,20 +33,9 @@
 ;; settings related to ido
 (ido-mode t)
 
-(setq ido-enable-flex-matching t
-      ido-use-virtual-buffers t)
-
 ;; settings for autopair
 (require 'autopair)
-(autopair-global-mode 1)
-
-;; settings for ansi-colors
-(require 'ansi-color)
-(defun colorize-compilation-buffer ()
-  (toggle-read-only)
-  (ansi-color-apply-on-region (point-min) (point-max))
-  (toggle-read-only))
-(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+(autopair-global-mode)
 
 ;; settings for flycheck
 (global-flycheck-mode)
@@ -57,8 +48,10 @@
 
 ;; powerline
 (require 'powerline)
-;; set patched font
-(set-default-font "Source Code Pro for Powerline Medium 13")
-(powerline-default-theme)
+(powerline-center-evil-theme)
+(require 'powerline-evil)
 
-;;; packages_settings.el ends here
+;; evil mode
+(require 'evil)
+
+;;; packages-settings ends here

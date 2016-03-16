@@ -1,3 +1,6 @@
+;;; init.el -- My Emacs config
+
+;;; Commentary:
 
 ;;; Code:
 ;; disable scroll bar
@@ -20,7 +23,12 @@
 		     flycheck
 		     xcscope
 		     helm
-		     powerline))
+		     powerline
+		     powerline-evil
+		     evil
+		     magit
+		     projectile
+		     gruvbox-theme))
 
 ;; list the repositories containing them
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
@@ -31,7 +39,7 @@
 ;; activate all the packages (in particular autoloads)
 (package-initialize)
 
-;; fetch the list of packages available 
+;; fetch the list of packages available
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -46,3 +54,6 @@
 			      (load "~/.emacs.d/my-custom-settings")
 			      (load "~/.emacs.d/my-custom-bindings")))
 
+
+(provide 'init)
+;;; init.el ends here
