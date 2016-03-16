@@ -55,11 +55,10 @@
 ;; helm mode
 (require 'helm-config)
 
-;; smart-mode-line
-(require 'smart-mode-line)
+;; powerline
+(require 'powerline)
 ;; set patched font
 (set-default-font "Source Code Pro for Powerline Medium 13")
-(setq sml/theme 'powerline)
-(sml/setup)
+(powerline-default-theme)
 
 ;;; packages_settings.el ends here
