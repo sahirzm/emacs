@@ -4,10 +4,6 @@
 ;;; Code:
 ;; ~/.emacs.d/packages-settings.el
 
-;; settings for indent-guide
-;;(require 'indent-guide)
-;;(indent-guide-global-mode)
-
 ;; settings for highlight-indentation
 (require 'highlight-indentation)
 (highlight-indentation-mode)

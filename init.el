@@ -3,6 +3,8 @@
 ;;; Commentary:
 
 ;;; Code:
+
+(setq debug-on-error t)
 ;; disable scroll bar
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 ;; disable menu-bar
@@ -29,7 +31,6 @@
 		     monokai-theme
 		     solarized-theme
 		     auto-complete
-		     indent-guide
 		     highlight-indentation
 		     smex
 		     autopair
@@ -48,7 +49,10 @@
 
 (when my-onlinep
     ;; list the repositories containing them
-    (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")))
+  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			   ("gnu" . "http://elpa.gnu.org/packages/")
+			   ("marmalade" . "https://marmalade-repo.org/packages/")
+			   ("elpa" . "http://tromey.com/elpa/")))
 
     ;; activate all the packages (in particular autoloads)
     (package-initialize)
