@@ -16,8 +16,8 @@
 
 ;; settings for org-mode
 (add-hook 'org-mode-hook
-          (lambda ()
-            (flyspell-mode)))
+	  (lambda ()
+	    (flyspell-mode)))
 
 ;; settings related to smex
 (defvar smex-save-file)
@@ -27,11 +27,15 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 ;; settings related to ido
+(require 'ido)
 (ido-mode t)
+(setq ido-enable-flex-matching t
+      ido-use-virtual-buffers t)
 
 ;; settings for autopair
-(require 'autopair)
-(autopair-global-mode)
+;;(require 'autopair)
+;;(autopair-global-mode)
+(electric-pair-mode t)
 
 ;; settings for flycheck
 (global-flycheck-mode)
@@ -39,7 +43,17 @@
 ;; cscope
 (require 'xcscope)
 
+;; malabar-mode java
+(load-file "~/temp/cedet/cedet-devel-load.el")
+(add-hook 'after-init-hook (lambda ()
+			     (message "activate-malabar-mode")
+			     (activate-malabar-mode)))
+
+(add-hook 'malabar-java-mode-hook 'flycheck-mode)
+(add-hook 'malabar-groovy-mode-hook 'flycheck-mode)
+
 ;; helm mode
+(require 'helm)
 (require 'helm-config)
 
 ;; powerline

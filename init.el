@@ -43,6 +43,7 @@
 		     magit
 		     projectile
 		     gruvbox-theme
+		     inf-groovy
 		     groovy-mode
 		     malabar-mode
 		     linum-relative))
