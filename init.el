@@ -42,13 +42,13 @@
 		     magit
 		     projectile
 		     gruvbox-theme
+		     groovy-mode
+		     malabar-mode
 		     linum-relative))
 
 (when my-onlinep
     ;; list the repositories containing them
-    (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
-			    ("gnu" . "http://elpa.gnu.org/packages/")
-			    ("melpa" . "https://melpa.org/packages/")))
+    (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")))
 
     ;; activate all the packages (in particular autoloads)
     (package-initialize)
