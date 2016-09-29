@@ -9,10 +9,10 @@
 (setq initial-scratch-message nil)
 
 ;; set evil mode to default
-(evil-mode t)
+;; (evil-mode t)
 
 ;; set Source code pro font
-(set-frame-font "Source Code Pro Medium 13")
+(set-frame-font "Fira Mono 13")
 ;; disable backups
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -48,3 +48,4 @@
 
 (provide 'my-custom-settings)
 ;;; my-custom-settings ends here
+

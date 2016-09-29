@@ -44,13 +44,13 @@
 (require 'xcscope)
 
 ;; malabar-mode java
-(load-file "~/temp/cedet/cedet-devel-load.el")
-(add-hook 'after-init-hook (lambda ()
-			     (message "activate-malabar-mode")
-			     (activate-malabar-mode)))
-
-(add-hook 'malabar-java-mode-hook 'flycheck-mode)
-(add-hook 'malabar-groovy-mode-hook 'flycheck-mode)
+;;(load-file "~/temp/cedet/cedet-devel-load.el")
+;;(add-hook 'after-init-hook (lambda ()
+;;			     (message "activate-malabar-mode")
+;;			     (activate-malabar-mode)))
+;;
+;;(add-hook 'malabar-java-mode-hook 'flycheck-mode)
+;;(add-hook 'malabar-groovy-mode-hook 'flycheck-mode)
 
 ;; helm mode
 (require 'helm)
@@ -58,11 +58,11 @@
 
 ;; powerline
 (require 'powerline)
-(powerline-center-evil-theme)
-(require 'powerline-evil)
+;; (require 'powerline-evil)
+(powerline-center-theme)
 
 ;; evil mode
-(require 'evil)
+;; (require 'evil)
 
 ;; relative line numbers
 (require 'linum-relative)
