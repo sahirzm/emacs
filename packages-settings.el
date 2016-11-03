@@ -20,6 +20,7 @@
 	    (flyspell-mode)))
 
 ;; settings related to smex
+(require 'smex)
 (defvar smex-save-file)
 (setq smex-save-file (expand-file-name ".smex-items" user-emacs-directory))
 (smex-initialize)
@@ -33,8 +34,8 @@
       ido-use-virtual-buffers t)
 
 ;; settings for autopair
-;;(require 'autopair)
-;;(autopair-global-mode)
+(require 'autopair)
+(autopair-global-mode)
 (electric-pair-mode t)
 
 ;; settings for flycheck
@@ -43,26 +44,13 @@
 ;; cscope
 (require 'xcscope)
 
-;; malabar-mode java
-;;(load-file "~/temp/cedet/cedet-devel-load.el")
-;;(add-hook 'after-init-hook (lambda ()
-;;			     (message "activate-malabar-mode")
-;;			     (activate-malabar-mode)))
-;;
-;;(add-hook 'malabar-java-mode-hook 'flycheck-mode)
-;;(add-hook 'malabar-groovy-mode-hook 'flycheck-mode)
-
 ;; helm mode
 (require 'helm)
 (require 'helm-config)
 
 ;; powerline
 (require 'powerline)
-;; (require 'powerline-evil)
 (powerline-center-theme)
-
-;; evil mode
-;; (require 'evil)
 
 ;; relative line numbers
 (require 'linum-relative)

@@ -22,8 +22,6 @@
 
 ;; set tab width to 8
 (setq-default tab-width 8)
-;; load tomorrow night theme
-;(load-theme 'sanityinc-tomorrow-night t)
 
 ;; load theme gruvbox
 (load-theme 'gruvbox t)

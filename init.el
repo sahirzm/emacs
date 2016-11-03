@@ -27,10 +27,7 @@
 
 ;; list the packages you want
 (defvar package-list)
-(setq package-list '(color-theme-sanityinc-tomorrow
-		     monokai-theme
-		     solarized-theme
-		     auto-complete
+(setq package-list '(auto-complete
 		     highlight-indentation
 		     smex
 		     autopair
@@ -38,14 +35,9 @@
 		     xcscope
 		     helm
 		     powerline
-		     powerline-evil
-		     evil
 		     magit
 		     projectile
 		     gruvbox-theme
-		     inf-groovy
-		     groovy-mode
-		     malabar-mode
 		     linum-relative))
 
 (when my-onlinep
