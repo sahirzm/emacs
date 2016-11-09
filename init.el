@@ -38,7 +38,20 @@
 		     magit
 		     projectile
 		     gruvbox-theme
-		     linum-relative))
+		     linum-relative
+		     php-mode
+		     yasnippet
+		     java-snippets
+		     angular-snippets
+		     django-snippets
+		     restclient
+		     neotree
+		     disable-mouse
+		     expand-region
+		     fill-column-indicator
+		     highlight-indent-guides
+		     emmet-mode
+		     web-mode))
 
 (when my-onlinep
     ;; list the repositories containing them
@@ -68,3 +81,17 @@
 
 (provide 'init)
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (fill-column-indicator web-mode php-mode xcscope smex projectile powerline magit linum-relative highlight-indentation helm gruvbox-theme flycheck autopair auto-complete))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

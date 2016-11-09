@@ -12,7 +12,7 @@
 ;; (evil-mode t)
 
 ;; set Source code pro font
-(set-frame-font "Fira Mono 13")
+(set-frame-font "Fira Mono 12")
 ;; disable backups
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -35,7 +35,7 @@
 (transient-mark-mode t)
 
 ;; sync both clipboards
-(setq x-select-enable-clipboard t)
+(setq select-enable-clipboard t)
 
 ;; change yes-no prompts
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -43,6 +43,19 @@
 ;; enable line number
 (setq column-number-mode t)
 (global-linum-mode t)
+
+;; web-mode enable by default for following files
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html\\.twig\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+;; remove {} auto pairing in electric-pair-pairs for web-mode
+(add-hook
+   'web-mode-hook
+   '(lambda ()
+      (setq-local electric-pair-inhibit-predicate
+                  (lambda (c)
+                    (if (char-equal c ?{) t (electric-pair-default-inhibit c))))))
 
 (provide 'my-custom-settings)
 ;;; my-custom-settings ends here

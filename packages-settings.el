@@ -34,9 +34,9 @@
       ido-use-virtual-buffers t)
 
 ;; settings for autopair
-(require 'autopair)
-(autopair-global-mode)
-(electric-pair-mode t)
+;;(require 'autopair)
+;;(autopair-global-mode)
+;;(electric-pair-mode t)
 
 ;; settings for flycheck
 (global-flycheck-mode)
@@ -57,6 +57,45 @@
 (linum-relative-on)
 
 ;; projectile for managing projects
-(projectile-global-mode)
+(projectile-mode)
+
+;; ya snippet
+(require 'yasnippet)
+(yas-reload-all)
+(add-hook 'php-mode-hook #'yas-minor-mode)
+
+;; enable web-mode and php-mode
+(require 'web-mode)
+(require 'php-mode)
+
+;; neotree settings
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
+;; disable mouse interactions
+(require 'disable-mouse)
+(global-disable-mouse-mode)
+
+;; expand region on pressing Ctrl + =
+(require 'expand-region)
+(global-set-key (kbd "C-?") 'er/expand-region)
+
+;; plugin to show column line at 120
+(require 'fill-column-indicator)
+(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(add-hook 'prog-mode-hook 'fci-mode)
+(setq fci-rule-column 120)
+(setq fci-rule-color "yellow")
+
+;; plugin to show indent guide lines
+(require 'highlight-indent-guides)
+(setq highlight-indent-guides-method 'character)
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+
+;; emmet mode for html and css
+(require 'emmet-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+(add-hook 'web-mode-hook 'emmet-mode)
 
 ;;; packages-settings ends here
