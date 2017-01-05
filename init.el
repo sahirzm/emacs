@@ -38,6 +38,7 @@
 		     magit
 		     projectile
 		     gruvbox-theme
+		     color-theme-sanityinc-solarized
 		     linum-relative
 		     php-mode
 		     yasnippet

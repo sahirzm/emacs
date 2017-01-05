@@ -8,6 +8,9 @@
 ;; set blank scratch message
 (setq initial-scratch-message nil)
 
+;; disable bell soun
+(setq visible-bell 1)
+
 ;; set evil mode to default
 ;; (evil-mode t)
 
@@ -22,6 +25,10 @@
 
 ;; set tab width to 8
 (setq-default tab-width 8)
+
+;; load solarized theme
+;;(require 'color-theme-sanityinc-solarized)
+;;(color-theme-sanityinc-solarized--define-theme light)
 
 ;; load theme gruvbox
 (load-theme 'gruvbox t)
