@@ -84,7 +84,7 @@
 (require 'fill-column-indicator)
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
 (add-hook 'prog-mode-hook 'fci-mode)
-(setq fci-rule-column 120)
+(setq fci-rule-column 80)
 (setq fci-rule-color "yellow")
 
 ;; plugin to show indent guide lines

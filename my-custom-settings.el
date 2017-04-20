@@ -15,7 +15,7 @@
 ;; (evil-mode t)
 
 ;; set Source code pro font
-(set-frame-font "Fira Mono 12")
+(set-frame-font "Fira Mono 14")
 ;; disable backups
 (setq make-backup-files nil)
 (setq auto-save-default nil)
