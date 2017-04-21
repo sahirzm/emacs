@@ -52,7 +52,8 @@
 		     fill-column-indicator
 		     highlight-indent-guides
 		     emmet-mode
-		     web-mode))
+		     web-mode
+             all-the-icons))
 
 (when my-onlinep
     ;; list the repositories containing them
