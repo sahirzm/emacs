@@ -13,9 +13,10 @@
 
 ;; set evil mode to default
 ;; (evil-mode t)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; set Source code pro font
-(set-frame-font "Fira Mono 14")
+(set-frame-font "Source Code Pro 13")
 ;; disable backups
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -31,8 +32,10 @@
 ;;(color-theme-sanityinc-solarized--define-theme light)
 
 ;; load theme gruvbox
-(load-theme 'gruvbox t)
-
+;;(load-theme 'gruvbox t)
+;;(load-theme 'atom-one-dark t)
+;;(load-theme 'spacemacs-dark)
+(load-theme 'dracula)
 ;; set my name and email
 (setq user-full-name "Sahir Maredia")
 (setq user-mail-address "sahirzm@gmail.com")
@@ -66,4 +69,3 @@
 
 (provide 'my-custom-settings)
 ;;; my-custom-settings ends here
-

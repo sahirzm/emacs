@@ -53,6 +53,9 @@
 		     highlight-indent-guides
 		     emmet-mode
 		     web-mode
+		     web-beautify
+		     atom-one-dark-theme
+             dracula-theme
              all-the-icons))
 
 (when my-onlinep
@@ -90,7 +93,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (fill-column-indicator web-mode php-mode xcscope smex projectile powerline magit linum-relative highlight-indentation helm gruvbox-theme flycheck autopair auto-complete))))
+    (dracula-theme atom-one-dark-theme fill-column-indicator web-mode php-mode xcscope smex projectile powerline magit linum-relative highlight-indentation helm gruvbox-theme flycheck autopair auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
