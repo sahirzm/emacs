@@ -37,6 +37,7 @@
 		     powerline
 		     magit
 		     projectile
+		     helm-projectile
 		     gruvbox-theme
 		     color-theme-sanityinc-solarized
 		     linum-relative
@@ -55,8 +56,13 @@
 		     web-mode
 		     web-beautify
 		     atom-one-dark-theme
-             dracula-theme
-             all-the-icons))
+		     dracula-theme
+		     docker-compose-mode
+		     dockerfile-mode
+		     yaml-mode
+		     json-mode
+		     js2-mode
+		     all-the-icons))
 
 (when my-onlinep
     ;; list the repositories containing them
@@ -91,6 +97,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("aaffceb9b0f539b6ad6becb8e96a04f2140c8faa1de8039a343a4f1e009174fb" "ff7625ad8aa2615eae96d6b4469fcc7d3d20b2e1ebc63b761a349bebbb9d23cb" default)))
  '(package-selected-packages
    (quote
     (dracula-theme atom-one-dark-theme fill-column-indicator web-mode php-mode xcscope smex projectile powerline magit linum-relative highlight-indentation helm gruvbox-theme flycheck autopair auto-complete))))

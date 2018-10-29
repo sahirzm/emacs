@@ -16,7 +16,7 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; set Source code pro font
-(set-frame-font "Source Code Pro 13")
+(set-frame-font "Source Code Pro 12")
 ;; disable backups
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -66,6 +66,10 @@
       (setq-local electric-pair-inhibit-predicate
                   (lambda (c)
                     (if (char-equal c ?{) t (electric-pair-default-inhibit c))))))
+
+;; indent case in js switch
+(setq js-switch-indent-offset 4)
+(setq js2-indent-switch-body t)
 
 (provide 'my-custom-settings)
 ;;; my-custom-settings ends here
