@@ -11,12 +11,10 @@
 ;; disable bell soun
 (setq visible-bell 1)
 
-;; set evil mode to default
-;; (evil-mode t)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; set Source code pro font
-(set-frame-font "Source Code Pro 12")
+(set-frame-font "Source Code Pro 14")
 ;; disable backups
 (setq make-backup-files nil)
 (setq auto-save-default nil)

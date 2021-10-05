@@ -27,6 +27,8 @@
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; settings related to ido
 (require 'ido)
@@ -35,8 +37,6 @@
       ido-use-virtual-buffers t)
 
 ;; settings for autopair
-;;(require 'autopair)
-;;(autopair-global-mode)
 (electric-pair-mode t)
 
 ;; settings for flycheck
@@ -82,7 +82,7 @@
 (require 'linum-relative)
 (linum-relative-on)
 
-;; projecptile for managing projects
+;; projectile for managing projects
 (require 'projectile)
 (projectile-mode)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
@@ -99,10 +99,9 @@
 (require 'web-mode)
 (require 'php-mode)
 
-;; neotree settings
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
-(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+;; treemacs
+(require 'treemacs)
+(require 'treemacs-projectile)
 
 ;; disable mouse interactions
 (require 'disable-mouse)
@@ -196,5 +195,11 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
 (add-to-list 'interpreter-mode-alist '("node" . js2-jsx-mode))
+
+;; company
+(add-hook 'after-init-hook 'global-company-mode)
+
+;; highlight-indent-guides
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
 ;;; packages-settings ends here
