@@ -202,4 +202,10 @@
 ;; highlight-indent-guides
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
+;; prettier-js
+(require 'prettier-js)
+(add-hook 'js2-mode-hook 'prettier-js-mode)
+(add-hook 'web-mode-hook 'prettier-js-mode)
+(add-hook 'rjsx-mode-hook 'prettier-js-mode)
+
 ;;; packages-settings ends here

@@ -62,6 +62,10 @@
 		     yaml-mode
 		     json-mode
 		     js2-mode
+		     rjsx-mode
+		     kotlin-mode
+		     prettier-js
+		     exec-path-from-shell
 		     all-the-icons))
 
 (when my-onlinep
@@ -80,7 +84,9 @@
     ;; install the missing packages
     (dolist (package package-list)
 	(unless (package-installed-p package)
-	    (package-install package))))
+	  (package-install package))))
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
 
 (setq custom-file "~/.emacs.d/custom.el")
 (add-hook 'after-init-hook '(lambda()
