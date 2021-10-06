@@ -11,10 +11,6 @@
 (set-face-background 'highlight-indentation-current-column-face "#c3b3b3")
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
-;; settings for auto-complete
-(require 'auto-complete)
-(ac-config-default)
-
 ;; settings for org-mode
 (add-hook 'org-mode-hook
 	  (lambda ()
@@ -73,14 +69,9 @@
 ;; powerline
 (require 'powerline)
 (powerline-center-theme)
-
-;; airline theme
-;;(require 'airline-themes)
-;;(load-theme 'airline-wombat)
-
-;; relative line numbers
-(require 'linum-relative)
-(linum-relative-on)
+;; airline-theme
+(require 'airline-themes)
+(load-theme 'airline-gruvbox-dark t)
 
 ;; projectile for managing projects
 (require 'projectile)

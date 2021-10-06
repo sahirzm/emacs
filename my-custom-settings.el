@@ -30,10 +30,10 @@
 ;;(color-theme-sanityinc-solarized--define-theme light)
 
 ;; load theme gruvbox
-;;(load-theme 'gruvbox t)
+(load-theme 'gruvbox t)
 ;;(load-theme 'atom-one-dark t)
 ;;(load-theme 'spacemacs-dark)
-(load-theme 'dracula)
+;;(load-theme 'dracula)
 ;; set my name and email
 (setq user-full-name "Sahir Maredia")
 (setq user-mail-address "sahirzm@gmail.com")
@@ -50,7 +50,6 @@
 
 ;; enable line number
 (setq column-number-mode t)
-(global-linum-mode t)
 
 ;; web-mode enable by default for following files
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))

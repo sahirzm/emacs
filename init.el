@@ -35,12 +35,12 @@
 		     xcscope
 		     helm
 		     powerline
+		     airline-themes
 		     magit
 		     projectile
 		     helm-projectile
 		     gruvbox-theme
 		     color-theme-sanityinc-solarized
-		     linum-relative
 		     php-mode
 		     yasnippet
 		     java-snippets
