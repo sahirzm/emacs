@@ -31,6 +31,7 @@
 ;; doom themes
 (use-package doom-themes
   :ensure t
+  :after (all-the-icons nerd-icons)
   :config
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
@@ -50,8 +51,9 @@
 ;; modeline
 (use-package doom-modeline
   :ensure t
+  :after (doom-themes)
   :init (doom-modeline-mode 1))
-
+(use-package all-the-icons)
 (use-package nerd-icons)
 
 ;; remember last edited file
@@ -106,5 +108,3 @@
 (use-package evil
   :config
   (evil-mode 1))
-
-
