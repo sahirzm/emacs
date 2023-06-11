@@ -56,6 +56,16 @@
 (use-package all-the-icons)
 (use-package nerd-icons)
 
+;; vertico
+(use-package vertico
+  :init
+  (vertico-mode))
+
+;; Do not allow the cursor in the minibuffer prompt
+  (setq minibuffer-prompt-properties
+        '(read-only t cursor-intangible t face minibuffer-prompt))
+  (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
+
 ;; remember last edited file
 (recentf-mode 1)
 
@@ -105,6 +115,13 @@
 (setq select-enable-clipboard t)
 
 ;; evil mode
-(use-package evil
-  :config
-  (evil-mode 1))
+;; (use-package evil
+;;  :config
+;;  (evil-mode 1))
+
+;; Projectile
+(use-package projectile)
+
+;; TODO: Org-mode
+;; TODO: Lsp
+;; Dired
