@@ -18,6 +18,12 @@
 ;; ensure to t for all packages
 (setq use-package-always-ensure t)
 
+;; fix shell path
+(use-package exec-path-from-shell
+  :config
+  (when (or (memq window-system '(mac ns x)) (daemonp))
+    (exec-path-from-shell-initialize)))
+
 ;;treemacs
 (use-package treemacs
   :ensure t
@@ -71,7 +77,9 @@
 
 ;; Save what you enter into minibuffer prompts
 (setq history-length 25)
-(savehist-mode 1)
+(use-package savehist
+  :init
+  (savehist-mode 1))
 
 ;; Remember and restore the last cursor location of opened files
 (save-place-mode 1)
@@ -122,9 +130,7 @@
 ;; Projectile
 (use-package projectile)
 
-;; TODO: Org-mode
-;; TODO: Lsp
-;; Dired
-
 (use-package which-key
-  :config (which-key-mode))
+  :init
+  (which-key-mode))
+
