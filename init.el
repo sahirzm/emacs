@@ -125,3 +125,6 @@
 ;; TODO: Org-mode
 ;; TODO: Lsp
 ;; Dired
+
+(use-package which-key
+  :config (which-key-mode))
