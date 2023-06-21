@@ -169,7 +169,6 @@
 (use-package lsp-java :config (add-hook 'java-mode-hook 'lsp))
 (use-package dap-mode :after lsp-mode :config (dap-auto-configure-mode))
 (use-package dap-java :ensure nil)
-(use-package helm-lsp)
 (use-package lsp-treemacs)
 
 ;; org mode
