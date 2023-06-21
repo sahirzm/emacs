@@ -64,8 +64,32 @@
 
 ;; vertico
 (use-package vertico
+  :bind
+  (:map vertico-map
+	("C-j" . vertico-next)
+	("C-k" . vertico-previous)
+	("C-f" . vertico-exit)
+	:map minibuffer-local-map
+	("M-h" . backward-kill-word))
+  :custom
+  (vertico-cycle t)
   :init
   (vertico-mode))
+
+;; extensions for vertico
+(use-package orderless
+  :after vertico
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
+
+
+(use-package marginalia
+  :after vertico
+  :custom
+  (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
+  :init
+  (marginalia-mode))
 
 ;; Do not allow the cursor in the minibuffer prompt
   (setq minibuffer-prompt-properties
@@ -123,9 +147,9 @@
 (setq select-enable-clipboard t)
 
 ;; evil mode
-;; (use-package evil
-;;  :config
-;;  (evil-mode 1))
+(use-package evil
+  :config
+  (evil-mode 1))
 
 ;; Projectile
 (use-package projectile)
@@ -133,4 +157,24 @@
 (use-package which-key
   :init
   (which-key-mode))
+
+;; Dependencies for LSP
+(use-package flycheck
+  :init (global-flycheck-mode))
+(use-package yasnippet :config (yas-global-mode))
+(use-package lsp-mode :hook ((lsp-mode . lsp-enable-which-key-integration)))
+(use-package hydra)
+(use-package company)
+(use-package lsp-ui)
+(use-package lsp-java :config (add-hook 'java-mode-hook 'lsp))
+(use-package dap-mode :after lsp-mode :config (dap-auto-configure-mode))
+(use-package dap-java :ensure nil)
+(use-package helm-lsp)
+(use-package lsp-treemacs)
+
+;; org mode
+
+
+(provide 'init)
+;;; init.el ends here
 
