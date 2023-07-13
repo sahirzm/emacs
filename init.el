@@ -83,7 +83,6 @@
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file (styles basic partial-completion)))))
 
-
 (use-package marginalia
   :after vertico
   :custom
@@ -172,14 +171,34 @@
 (use-package flycheck
   :init (global-flycheck-mode))
 (use-package yasnippet :config (yas-global-mode))
-(use-package lsp-mode :hook ((lsp-mode . lsp-enable-which-key-integration)))
+(use-package lsp-mode
+  :commands
+  (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  (lsp-enable-which-key-integration t))
 (use-package hydra)
-(use-package company)
-(use-package lsp-ui)
+;;(use-package company
+;;  :after lsp-mode
+;;  :hook (prog-mode . company-mode)
+;;  :bind (:map company-active-map
+;;         ("<tab>" . company-complete-selection))
+;;        (:map lsp-mode-map
+;;         ("<tab>" . company-indent-or-complete-common))
+;;  :custom
+;;  (company-minimum-prefix-length 1)
+;;  (company-idle-delay 0.0))
+;;(use-package company-box
+;;  :hook
+;;  (company-mode . company-mode-box))
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode))
 (use-package lsp-java :config (add-hook 'java-mode-hook 'lsp))
 (use-package dap-mode :after lsp-mode :config (dap-auto-configure-mode))
 (use-package dap-java :ensure nil)
-(use-package lsp-treemacs)
+(use-package lsp-treemacs
+  :after lsp)
 
 ;; org mode
 
