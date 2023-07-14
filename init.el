@@ -19,10 +19,10 @@
 (setq use-package-always-ensure t)
 
 ;; fix shell path
-(use-package exec-path-from-shell
-  :config
-  (when (or (memq window-system '(mac ns x)) (daemonp))
-    (exec-path-from-shell-initialize)))
+;;(use-package exec-path-from-shell
+;;  :config
+;;  (when (or (memq window-system '(mac ns x)) (daemonp))
+;;    (exec-path-from-shell-initialize)))
 
 ;;treemacs
 (use-package treemacs
@@ -34,6 +34,8 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
+(use-package all-the-icons)
+(use-package nerd-icons)
 ;; doom themes
 (use-package doom-themes
   :ensure t
@@ -59,8 +61,6 @@
   :ensure t
   :after (doom-themes)
   :init (doom-modeline-mode 1))
-(use-package all-the-icons)
-(use-package nerd-icons)
 
 ;; vertico
 (use-package vertico
@@ -161,7 +161,13 @@
   (evil-collection-init))
 
 ;; Projectile
-(use-package projectile)
+(use-package projectile
+  :init
+  (projectile-mode +1)
+  :bind (:map projectile-mode-map
+	      ("C-c p" . projectile-command-map))
+  :config
+  (setq projectile-project-search-path '("~/workspace/")))
 
 (use-package which-key
   :init
@@ -175,23 +181,15 @@
   :commands
   (lsp lsp-deferred)
   :init
+  (setenv "LSP_USE_PLISTS" "1")
   (setq lsp-keymap-prefix "C-c l")
   :config
-  (lsp-enable-which-key-integration t))
+  (lsp-enable-which-key-integration t)
+  (setq read-process-output-max (* 1024 1024 3))
+  (setq gc-cons-threshold 100000000)
+  (setq lsp-idle-delay 0.500)
+  (setq lsp-file-watch-threshold 3000))
 (use-package hydra)
-;;(use-package company
-;;  :after lsp-mode
-;;  :hook (prog-mode . company-mode)
-;;  :bind (:map company-active-map
-;;         ("<tab>" . company-complete-selection))
-;;        (:map lsp-mode-map
-;;         ("<tab>" . company-indent-or-complete-common))
-;;  :custom
-;;  (company-minimum-prefix-length 1)
-;;  (company-idle-delay 0.0))
-;;(use-package company-box
-;;  :hook
-;;  (company-mode . company-mode-box))
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
 (use-package lsp-java :config (add-hook 'java-mode-hook 'lsp))
