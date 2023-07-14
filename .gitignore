@@ -4,3 +4,12 @@ eln-cache
 history
 recentf
 places
+custom.el
+.cache/
+.dap-breakpoints
+.lsp-session-v1
+eclipse.jdt.ls/
+projectile-bookmarks.eld
+projects
+transient/
+workspace/
