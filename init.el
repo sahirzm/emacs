@@ -456,6 +456,11 @@
   :hook
   (prog-mode . format-all-mode))    ;; format on save
 
+;; colorful parens
+(use-package rainbow-delimiters
+  :hook
+  (prog-mode . rainbow-delimiters-mode))
+
 ;; org mode
 
 ;; magit
