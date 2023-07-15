@@ -451,6 +451,11 @@
   :hook (nix-mode . lsp-deferred)
   :ensure t)
 
+;; format code
+(use-package format-all
+  :hook
+  (prog-mode . format-all-mode))    ;; format on save
+
 ;; org mode
 
 ;; magit
