@@ -384,6 +384,10 @@
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
 
+(use-package lsp-treemacs
+  :after lsp)
+
+;; Java LSP
 (setq lombok-path
       (concat
        "-javaagent:"
@@ -415,8 +419,37 @@
 (use-package dap-java
   :ensure nil)
 
-(use-package lsp-treemacs
-  :after lsp)
+;; Kotlin LSP
+(use-package kotlin-mode
+  :hook (kotlin-mode . lsp-deferred))
+
+(use-package dap-kotlin
+  :ensure nil
+  :config
+  (setq lsp-kotlin-debug-adapter-enabled t))
+
+;; Typescript LSP
+(use-package typescript-mode
+  :mode "\\.ts\\'"
+  :hook (typescript-mode . lsp-deferred)
+  :config
+  (setq typescript-indent-level 2
+	lsp-javascript-format-enable nil))
+
+;; nix LSP
+(use-package lsp-mode
+  :ensure t)
+
+(use-package lsp-nix
+  :ensure lsp-mode
+  :after (lsp-mode)
+  :demand t
+  :custom
+  (lsp-nix-nil-formatter ["nixpkgs-fmt"]))
+
+(use-package nix-mode
+  :hook (nix-mode . lsp-deferred)
+  :ensure t)
 
 ;; org mode
 
