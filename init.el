@@ -199,7 +199,6 @@
          ("M-y" . consult-yank-pop)                ;; orig. yank-pop
          ;; M-g bindings in `goto-map'
          ("M-g e" . consult-compile-error)
-         ("M-g f" . consult-flymake)               ;; Alternative: consult-flycheck
          ("M-g g" . consult-goto-line)             ;; orig. goto-line
          ("M-g M-g" . consult-goto-line)           ;; orig. goto-line
          ("M-g o" . consult-outline)               ;; Alternative: consult-org-heading
@@ -292,6 +291,13 @@
   ;;;; 5. No project support
   ;; (setq consult-project-function nil)
 )
+
+(use-package consult-flycheck
+  :after consult
+  :bind (
+	 ("M-g f" . consult-flycheck)               ;; Alternative: consult-flycheck
+	 ))
+
 ;; Enable rich annotations using the Marginalia package
 (use-package marginalia
   ;; Bind `marginalia-cycle' locally in the minibuffer.  To make the binding
@@ -428,6 +434,10 @@
   :config
   (setq lsp-kotlin-debug-adapter-enabled t))
 
+(use-package flycheck-kotlin
+  :hook
+  (kotlin-mode . flycheck-mode))
+
 ;; Typescript LSP
 (use-package typescript-mode
   :mode "\\.ts\\'"
@@ -455,6 +465,10 @@
 (use-package format-all
   :hook
   (prog-mode . format-all-mode))    ;; format on save
+
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1))
 
 ;; colorful parens
 (use-package rainbow-delimiters
