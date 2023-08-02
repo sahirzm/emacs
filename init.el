@@ -1,3 +1,7 @@
+;;; init.el --- Emacs init.el file
+;;; Commentary:
+;;; Code:
+
 (setq inhibit-startup-message t ; Don't show the splash screen
       visible-bell t)           ; Flash when the bell rings
 
@@ -6,8 +10,24 @@
 (scroll-bar-mode -1)            ; no scrollbar
 
 (require 'package)
+
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package)
+  (package-install 'use-package-ensure))
+(eval-and-compile
+  (setq use-package-always-ensure t
+        use-package-expand-minimally t))
+
+(use-package auto-package-update
+  :ensure t
+  :config
+  (setq auto-package-update-delete-old-versions t
+	auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; set firacode font
 (set-face-attribute 'default nil :font "FiraCode Nerd Font")
@@ -17,14 +37,20 @@
 ;; Display line numbers in all buffers
 (global-display-line-numbers-mode 1)
 
-;; ensure to t for all packages
-(setq use-package-always-ensure t)
-
 ;; fix shell path
 ;;(use-package exec-path-from-shell
 ;;  :config
 ;;  (when (or (memq window-system '(mac ns x)) (daemonp))
 ;;    (exec-path-from-shell-initialize)))
+
+;; search tools
+(use-package ag)
+(use-package rg)
+
+;; navigate faster with avy
+(use-package avy
+  :config
+  (avy-setup-default))
 
 ;;treemacs
 (use-package treemacs
