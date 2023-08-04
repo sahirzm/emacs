@@ -11,19 +11,21 @@
 
 (require 'package)
 
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archive-priorities '("melpa-stable" . 50) t)
+(add-to-list 'package-archive-priorities '("melpa" . 10) t)
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
-  (package-install 'use-package)
-  (package-install 'use-package-ensure))
+  (package-install 'use-package))
+(require 'use-package-ensure)
 (eval-and-compile
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
 
 (use-package auto-package-update
-  :ensure t
   :config
   (setq auto-package-update-delete-old-versions t
 	auto-package-update-hide-results t)
@@ -116,9 +118,9 @@
   (marginalia-mode))
 
 ;; Do not allow the cursor in the minibuffer prompt
-  (setq minibuffer-prompt-properties
-        '(read-only t cursor-intangible t face minibuffer-prompt))
-  (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
+(setq minibuffer-prompt-properties
+      '(read-only t cursor-intangible t face minibuffer-prompt))
+(add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
 
 ;; remember last edited file
 (recentf-mode 1)
@@ -404,7 +406,7 @@
   ;; (setq consult-project-function (lambda (_) (projectile-project-root)))
   ;;;; 5. No project support
   ;; (setq consult-project-function nil)
-)
+  )
 
 (use-package consult-flycheck
   :after consult
@@ -418,7 +420,7 @@
   ;; available in the *Completions* buffer, add it to the
   ;; `completion-list-mode-map'.
   :bind (:map minibuffer-local-map
-         ("M-A" . marginalia-cycle))
+              ("M-A" . marginalia-cycle))
 
   ;; The :init section is always executed.
   :init
@@ -475,7 +477,7 @@
   (setenv "LSP_USE_PLISTS" "1")
   (defun my/orderless-dispatch-flex-first (_pattern index _total)
     (and (eq index 0) 'orderless-flex))
-  
+
   (defun my/lsp-mode-setup-completion ()
     (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
 	  '(orderless)))
@@ -485,6 +487,8 @@
 
   ;; Optionally configure the cape-capf-buster.
   (setq-local completion-at-point-functions (list (cape-capf-buster #'lsp-completion-at-point)))
+  (setq lsp-keymap-prefix "C-c l")
+
   :hook
   (lsp-completion-mode . my/lsp-mode-setup-completion)
   :config
@@ -495,7 +499,6 @@
 	lsp-file-watch-threshold 3000
 	lsp-enable-on-type-formatting nil)
   :bind (:map lsp-mode-map
-	      ("C-c l" . lsp-command-map)
 	      ("C-c d" . lsp-describe-thing-at-point)
 	      ("C-c a" . lsp-execute-code-action)))
 
@@ -541,10 +544,7 @@
 
 ;; Kotlin LSP
 (use-package kotlin-mode
-  :hook (kotlin-mode . lsp-deferred))
-
-(use-package dap-kotlin
-  :ensure nil
+  :hook (kotlin-mode . lsp-deferred)
   :config
   (setq lsp-kotlin-debug-adapter-enabled t))
 
@@ -595,4 +595,3 @@
 
 (provide 'init)
 ;;; init.el ends here
-
