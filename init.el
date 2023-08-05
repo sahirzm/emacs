@@ -15,7 +15,6 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archive-priorities '("melpa-stable" . 50) t)
 (add-to-list 'package-archive-priorities '("melpa" . 10) t)
-(package-initialize)
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -591,7 +590,9 @@
 
 ;; magit
 (use-package magit
-  :bind (("C-x g" . magit-status)))
+  :bind (("C-x g" . magit-status))
+  :config
+  (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1))
 
 (provide 'init)
 ;;; init.el ends here
