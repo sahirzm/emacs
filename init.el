@@ -38,6 +38,13 @@
 ;; Display line numbers in all buffers
 (global-display-line-numbers-mode 1)
 
+;; indent guides
+(use-package highlight-indent-guides
+  :init
+  (setq highlight-indent-guides-method 'character)
+  :hook
+  (prog-mode . highlight-indent-guides-mode))
+
 ;; fix shell path
 ;;(use-package exec-path-from-shell
 ;;  :config
@@ -558,6 +565,9 @@
   :config
   (setq typescript-indent-level 2
 	lsp-javascript-format-enable nil))
+(use-package rjsx-mode
+  :hook
+  (rjsx-mode . lsp-deferred))
 
 ;; nix LSP
 (use-package lsp-mode)
